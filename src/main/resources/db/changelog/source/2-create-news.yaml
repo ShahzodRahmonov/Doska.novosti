@@ -1,0 +1,46 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 2
+      author: Shahzod
+      changes:
+        - createTable:
+            tableName: news
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_news
+                  autoIncrement: true
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_news_users
+                    references: users(id)
+              - column:
+                  name: title
+                  type: VARCHAR(100)
+              - column:
+                  name: text
+                  type: VARCHAR(500)
+              - column:
+                  name: ststus
+                  type: VARCHAR(20)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+
+
+
+
+
+
+
+
